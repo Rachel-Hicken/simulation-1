@@ -3,6 +3,7 @@ import './App.css';
 import Dashboard from './Components/Dashboard/Dashboard';
 import Form from './Components/Form/Form';
 import Header from './Components/Header/Header';
+import axios from 'axios';
 
 
 
@@ -10,16 +11,24 @@ class App extends Component {
   constructor(){
     super()
     this.state={
-      list: [
-        { imgURL:'https://http.cat/100', productName:'tofu', price:'5.99'},
-        { imgURL:'https://http.cat/400', productName:'fluffy', price:'46.00'},
-        { imgURL:'https://http.cat/404', productName:'roger', price:'25.00'}
-      ],
+      list: [],
+      // [
+      //   { imgURL:'https://http.cat/100', productName:'tofu', price:'5.99'},
+      //   { imgURL:'https://http.cat/400', productName:'fluffy', price:'46.00'},
+      //   { imgURL:'https://http.cat/404', productName:'roger', price:'25.00'}],
       imgURL: '',
       productName: '',
       price: ''
     }
     this.cancelHandler = this.cancelHandler.bind(this);
+  }
+
+  componentDidMount(){
+    axios.get('/api/inventory').then(res=>{
+      this.setState({
+        list: res.data
+      })
+    })
   }
 
   imgHandler(val){
