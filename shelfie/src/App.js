@@ -21,6 +21,7 @@ class App extends Component {
       price: ''
     }
     this.cancelHandler = this.cancelHandler.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
   }
 
   componentDidMount(){
@@ -64,13 +65,13 @@ class App extends Component {
     return (
       <div className="App">
         <Dashboard items={this.state.list}/>
-        <Form/>
+        <Form start={this.componentDidMount}/>
         <Header/>
         <input onChange={(event)=>this.imgHandler(event.target.value)} type='text'/>
         <input onChange={(event)=>this.productHandler(event.target.value)} type='text'/>
         <input onChange={(event)=>this.priceHandler(event.target.value)} type='text'/>
         <button onClick={this.cancelHandler}>Cancel</button>
-        <button>Add</button>
+        <button >Add</button>
       </div>
     );
   }
