@@ -16,7 +16,7 @@ class App extends Component {
       //   { imgURL:'https://http.cat/100', productName:'tofu', price:'5.99'},
       //   { imgURL:'https://http.cat/400', productName:'fluffy', price:'46.00'},
       //   { imgURL:'https://http.cat/404', productName:'roger', price:'25.00'}],
-      imgURL: '',
+      image_url: '',
       productName: '',
       price: ''
     }
@@ -34,7 +34,7 @@ class App extends Component {
 
   imgHandler(val){
     this.setState({
-      imgURL: val
+      image_URL: val
     })
   }
 
@@ -52,7 +52,7 @@ class App extends Component {
 
   cancelHandler(){
     this.setState({
-      imgURL: '',
+      image_url: '',
       productName: '',
       price: ''
     })
@@ -71,7 +71,7 @@ class App extends Component {
         <input onChange={(event)=>this.productHandler(event.target.value)} type='text'/>
         <input onChange={(event)=>this.priceHandler(event.target.value)} type='text'/>
         <button onClick={this.cancelHandler}>Cancel</button>
-        <button >Add</button>
+        <button onClick={this.createProduct} >Add</button>
       </div>
     );
   }
