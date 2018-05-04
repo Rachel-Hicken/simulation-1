@@ -4,10 +4,6 @@ const express = require('express'),
       massive = require('massive');
       require('dotenv').config();
 
-
-
-
-
 const app = express(),
       port = 3005;
 
