@@ -1,7 +1,10 @@
 import React from 'react';
 
-export default function Product(){
+export default function Product(props){
+    let {product} = props;
     return(
-        <div>Product</div>
+        <div>
+            <p>Product</p>
+        </div>
     )
 }
