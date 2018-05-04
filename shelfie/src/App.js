@@ -58,6 +58,9 @@ class App extends Component {
   }
 
   render() {
+        //   let convertObj = Object.keys(list).map(function(key){
+        //     return[Number(key), list[key]];
+        // });
     return (
       <div className="App">
         <Dashboard items={this.state.list}/>

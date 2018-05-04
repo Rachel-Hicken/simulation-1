@@ -1,10 +1,9 @@
 import React from 'react';
 
 export default function Product(props){
-    let {product} = props;
     return(
         <div>
-            <p>Product</p>
+            <p>{props.product}</p>
         </div>
     )
 }

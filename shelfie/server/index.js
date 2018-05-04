@@ -14,7 +14,7 @@ massive(process.env.CONNECTION_STRING)
         app.set('db', dbInstance)});
 
 app.get('/api/inventory', controller.read);
-
+app.post('/api/product', controller.create);
 
 
 
