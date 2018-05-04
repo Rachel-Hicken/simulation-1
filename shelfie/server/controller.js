@@ -1,3 +1,4 @@
+
 module.exports={
     create: (req,res)=>{
         const dbInstance = req.app.get('db');
@@ -13,6 +14,12 @@ module.exports={
         dbInstance.get_inventory()
         .then( (products) => res.status(200).send(products) )
         .catch( (e) =>{console.log(e); res.status(500).send() });
+    },
+    delete: (req, res)=>{
+        const deleteID = req.params.id;
+        productIndex = list.findIndex(product=>productID === deleteID);
+        list.splice(productIndex, 1);
+        res.status(200).send(list);
     }
 
 }

@@ -15,6 +15,7 @@ massive(process.env.CONNECTION_STRING)
 
 app.get('/api/inventory', controller.read);
 app.post('/api/product', controller.create);
+app.delete('/api/product/:id', controller.delete);
 
 
 

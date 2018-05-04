@@ -11,7 +11,7 @@ class App extends Component {
   constructor(){
     super()
     this.state={
-      list: [],
+      list: ['https://http.cat/404', 'shoes', '25.99'],
       // [
       //   { imgURL:'https://http.cat/100', productName:'tofu', price:'5.99'},
       //   { imgURL:'https://http.cat/400', productName:'fluffy', price:'46.00'},
@@ -30,6 +30,14 @@ class App extends Component {
         list: res.data
       })
     })
+  }
+
+  deleteProduct(id){
+    axios.delete(`/api/inventory/${id}`).then(res=>{
+      this.setState({
+        list: res.data
+      });
+    });
   }
 
   imgHandler(val){
@@ -64,9 +72,9 @@ class App extends Component {
         // });
     return (
       <div className="App">
+        <Header/>
         <Dashboard items={this.state.list}/>
         <Form start={this.componentDidMount}/>
-        <Header/>
         <input onChange={(event)=>this.imgHandler(event.target.value)} type='text'/>
         <input onChange={(event)=>this.productHandler(event.target.value)} type='text'/>
         <input onChange={(event)=>this.priceHandler(event.target.value)} type='text'/>
